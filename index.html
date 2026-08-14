@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Fresco & Orgánico</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">Mercado<strong>Fresco</strong></span>
+            </a>
+            
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Buscar frutas, verduras, panadería...">
+            </div>
+
+            <button class="cart-trigger" id="cart-btn" aria-label="Ver Carrito">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-text">Mi Carrito</span>
+                <span class="cart-badge" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-layout">
+        
+        <!-- Hero Banner -->
+        <section class="hero-banner">
+            <div class="hero-content">
+                <span class="tag">100% Orgánico & Local</span>
+                <h1>Productos frescos directos a tu hogar</h1>
+                <p>Selección artesanal de frutas, verduras y abarrotes de alta calidad.</p>
+            </div>
+        </section>
+
+        <!-- Filter Bar -->
+        <section class="controls-section">
+            <div class="categories-wrapper" id="categories-container">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="frutas">🍎 Frutas</button>
+                <button class="filter-btn" data-category="verduras">🥬 Verduras</button>
+                <button class="filter-btn" data-category="panaderia">🥖 Panadería</button>
+                <button class="filter-btn" data-category="lacteos">🧀 Lácteos & Huevos</button>
+                <button class="filter-btn" data-category="despensa">🏺 Despensa</button>
+            </div>
+        </section>
+
+        <!-- Product Grid -->
+        <section class="products-section">
+            <div class="product-grid" id="product-grid">
+                <!-- Products dynamically inserted via JS -->
+            </div>
+            <div class="no-results hidden" id="no-results">
+                <p>🔍 No encontramos productos que coincidan con tu búsqueda.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Side Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Tu Carrito (<span id="drawer-count">0</span>)</h3>
+            <button class="close-btn" id="close-cart">&times;</button>
+        </div>
+
+        <div class="cart-body" id="cart-items">
+            <!-- Dynamic Cart Items -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="summary-line">
+                <span>Subtotal</span>
+                <span id="subtotal-amount">S/ 0.00</span>
+            </div>
+            <div class="summary-line shipping">
+                <span>Envío estimado</span>
+                <span class="free-badge">Gratis</span>
+            </div>
+            <div class="summary-line total">
+                <span>Total</span>
+                <span id="total-amount">S/ 0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </aside>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
