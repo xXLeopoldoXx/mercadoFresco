@@ -38,8 +38,13 @@ const totalAmount = document.getElementById("total-amount");
 const checkoutBtn = document.getElementById("checkout-btn");
 const toastContainer = document.getElementById("toast-container");
 
+// Nuevos DOM Elements para el Modo Oscuro
+const themeBtn = document.getElementById("theme-btn");
+const themeIcon = document.getElementById("theme-icon");
+
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
+    initTheme(); // Inicializar el tema guardado
     renderProducts();
     setupEventListeners();
 });
@@ -69,7 +74,38 @@ function setupEventListeners() {
 
     // Checkout
     checkoutBtn.addEventListener("click", handleCheckout);
+
+    // Theme Toggle
+    if (themeBtn) {
+        themeBtn.addEventListener("click", toggleTheme);
+    }
 }
+
+// ==========================================
+// Theme Logic (Modo Oscuro)
+// ==========================================
+function initTheme() {
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-theme");
+        if (themeIcon) themeIcon.textContent = "☀️";
+    }
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark-theme");
+    const isDark = document.body.classList.contains("dark-theme");
+
+    if (isDark) {
+        localStorage.setItem("theme", "dark");
+        if (themeIcon) themeIcon.textContent = "☀️";
+        showToast("Modo oscuro activado 🌙");
+    } else {
+        localStorage.setItem("theme", "light");
+        if (themeIcon) themeIcon.textContent = "🌙";
+        showToast("Modo claro activado ☀️");
+    }
+}
+// ==========================================
 
 // Filter and Render Products
 function renderProducts() {

@@ -578,3 +578,51 @@ body {
         gap: 32px;
     }
 }
+
+/* =========================================
+   DARK MODE
+========================================= */
+/* Al agregar esta clase al body, todos los colores cambian */
+body.dark-theme {
+    --bg-main: #0F172A;      /* Fondo oscuro azulado */
+    --bg-card: #1E293B;      /* Tarjetas ligeramente más claras */
+    --text-primary: #F8FAFC; /* Texto casi blanco */
+    --text-secondary: #94A3B8; /* Texto secundario gris claro */
+    --border: #334155;       /* Bordes oscuros */
+    --primary-light: rgba(45, 106, 79, 0.25); /* Verde translúcido para el carrito */
+}
+
+/* Adaptación específica para el Navbar en modo oscuro */
+body.dark-theme .navbar {
+    background: rgba(30, 41, 59, 0.85); /* #1E293B con transparencia */
+}
+
+/* Estilos del botón */
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    margin-right: 10px;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-card);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Ajustes menores para móvil */
+@media (max-width: 640px) {
+    .theme-toggle {
+        margin-right: 0;
+        order: 2; /* Para que quede junto al carrito arriba */
+    }
+}
